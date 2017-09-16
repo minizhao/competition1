@@ -1,0 +1,25 @@
+def score_url(org_domain_name='',scholar_name='',list_url=''):
+    """
+    org_domain_name:组织域名
+    scholar_name：学者名
+    list_url：待选url集合
+    """
+    scholar_subname_list=scholar_name.lower().split(' ')
+    domain_name_existed=False
+    scholar_name_existed=False
+    score_list=[]   
+    for _url in list_url:
+        score=0
+        _url=_url.lower() #域名转换为小写
+        
+        if org_domain_name in _url:
+            domain_name_existed=True
+            score=score+1
+        
+        for subname in scholar_subname_list:
+            if subname in _url:
+                scholar_name_existed=True
+                score=score+1
+        score_list.append(score)
+    max_index=score_list.index(max(score_list))    
+    return max_index,list_url[max_index]
