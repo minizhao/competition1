@@ -1,2 +1,2 @@
 # competition1
-a repository of comption1  (https://biendata.com/competition/scholar/data/)
+a repository of comption1 file code and data (https://biendata.com/competition/scholar/data/)
