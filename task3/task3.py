@@ -46,7 +46,7 @@ def data_loader(train_path='train.csv',paper_path='paper.txt',vali_path='validat
             else:
                 continue  
         assert len(author_to_relation.keys())>0
-        print "train data"
+        print ("train data")
         i=0
         for key,value in author_to_relation.iteritems():
             i+=1
@@ -71,7 +71,7 @@ def data_loader(train_path='train.csv',paper_path='paper.txt',vali_path='validat
             vali_author_list.append(author)
         assert len(vali_author_list)==300000
         i=0
-        print "\nvali data"
+        print ("\nvali data")
         for author in vali_author_list:
             i+=1
             if author in author_to_relation.keys():
@@ -125,7 +125,7 @@ if __name__ == '__main__':
     X_train, X_test, y_train, y_test = train_test_split(train_X_data, train_y_data, test_size=0.25, random_state=33)
     GBR=GradientBoostingRegressor()
     GBR=GBR.fit(X_train, y_train)
-    print "GBR train score is {}".format(GBR.score(X_test, y_test))
+    print ("GBR train score is {}".format(GBR.score(X_test, y_test)))
     
     #start pred task#
     GBR=GBR.fit(X_train, y_train)    
@@ -136,6 +136,6 @@ if __name__ == '__main__':
   
     df=pd.DataFrame(pred_data,columns=['authorname','citation'])
     df.to_csv("result.csv", sep=' ',index=False)
-    print "compute completed.."
+    print ("compute completed..")
     
     
